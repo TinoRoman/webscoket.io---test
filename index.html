@@ -1,0 +1,19 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const clients = [ 'Tom', 'Jerry', 'Ella', 'Nino' ]
+
+  const getUserId = function() {
+    const client = clients[ new Date().getTime() % 4 ]
+    return client
+  }
+
+  const socket = io.connect( 'http://localhost:3000', {
+    query: {
+      userId: getUserId(),
+    }
+  } )
+
+  socket.on( 'CHEESE', ( data ) => {
+    console.log( data )
+  } )
+</script>

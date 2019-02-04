@@ -21,7 +21,6 @@ io.use( ( socket, next ) => {
 } )
 
 io.on( 'connection', ( socket ) => {
-  const client = clients[ socket.id ]
   console.log( `Client ${ client.clientId } connected` )
   setInterval( () => {
     const client = clients[ socket.id ]
